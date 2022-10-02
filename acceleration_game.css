@@ -1,0 +1,134 @@
+:root {
+    --orange: #cd5334;
+    --lite-orange: #d7bfbc;
+    --purple: #75485e;
+    --green: #2da397;
+    --black: #2e282a;
+    --color-pc: var(--purple);
+    --color-p: var(--orange);
+    --color-value: var(--orange);
+    --color-budget: var(--green);
+    --color-productivity: var(--purple);
+  }
+
+#main {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+#result {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+#game_canvas {
+    fill-rule:evenodd;
+    clip-rule:evenodd;
+    stroke-linejoin:round;
+    stroke-miterlimit:2;
+}
+
+.p {
+    fill: var(--color-p);
+}
+
+.pc {
+    fill: var(--color-pc);
+}
+
+.axis {
+    fill: var(--black);
+}
+
+.value {
+    fill: var(--color-value);
+}
+
+.productivity {
+    fill: var(--color-productivity);
+}
+
+.budget {
+    fill: var(--color-budget);
+}
+
+.area_label {
+    font-weight:700;
+    font-size:80px;
+    font-family:Helvetica-Bold, Helvetica;
+    stroke-width:1px;
+}
+
+.area_label.budget {
+    stroke:var(--color-budget);
+}
+
+.area_label.budget {
+    stroke:var(--color-productivity);
+}
+
+.bars {
+    stroke: var(--black);
+    stroke-width:15px;
+    stroke-linecap:round;
+    stroke-miterlimit:1.5;
+}
+
+.button {
+    stroke:var(--black);
+    stroke-width:14.87663746px;
+    stroke-linecap:round;
+    stroke-miterlimit:1.5;
+    stroke-dasharray:14.87663683, 14.87663683;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.button_label {
+    font-weight:700;
+    font-size:80.38707733px;
+    font-family:Helvetica-Bold, Helvetica;
+    fill: var(--black);
+    stroke:var(--black);
+    stroke-width:1.00164616px;
+    cursor: pointer;
+    pointer-events: none; 
+}
+
+path.value_curve {
+    fill:none;
+    stroke-width:15.23999977;
+    stroke-linecap:round;
+    stroke-miterlimit:1.5
+}
+
+path.value_curve.human {
+    stroke:var(--orange);
+}
+
+path.value_curve.ai {
+    stroke:var(--lite-orange);
+}
+
+p#result_text {
+    font-weight:700;
+    font-size:80px;
+    font-family:Helvetica-Bold, Helvetica;
+    stroke-width:1px;
+    color: var(--black);
+}
+
+p#retry_button {
+    font-weight:700;
+    font-size:80px;
+    font-family:Helvetica-Bold, Helvetica;
+    stroke-width:1px;
+    color: var(--orange);
+    cursor: pointer;
+}
