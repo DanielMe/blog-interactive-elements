@@ -304,6 +304,8 @@ function getRanks(){
 
 function investHandler(human_action) {
     var ranks = getRanks();
+    // TODO remove stupid debug statement
+    d3.select("body").append("p").text("AI: " + ranks.ai + " Human: " + ranks.human);
     state = {
         "iteration": state.iteration + 1,
         "human_player": newPlayerState(human_action, state.human_player, ranks.human),
@@ -357,7 +359,7 @@ function makeInitialPlayerState() {
     return {
         "budget": 10,
         "value_history": [0],
-        "productivity": 1,
+        "productivity": 5,
         "eliminated": false
     };
 }
@@ -366,7 +368,7 @@ function makeInitialAiPlayerState() {
     return {
         "budget": 10,
         "value_history": [0],
-        "productivity": 1,
+        "productivity": 5,
         "eliminated": false,
         "lowBudgetStrategy": Math.random()*0.5,
         "highBudgetStrategy": Math.random()*0.5 + 0.4
@@ -397,7 +399,9 @@ function showResult(isVictory) {
         .attr("style", "visibility: hidden");
 
     d3.select("#result_text")
-        .text(isVictory ? "You won! Everyone else ran out of budget." : "Oops, you ran out of budget!");
+        .text(isVictory ? 
+            "Good job! Only you and one other player are left, everyone else ran out of budget." : 
+            "Oops, you ran out of budget!");
 
     d3.select("#retry_button")
         .on("click", reStartGame);
