@@ -291,8 +291,9 @@ function newPlayerState(action, currentState, rank){
 function getRanks(){
     var values = state.ai_players.map(p => p.value_history.slice(-1)[0]);
     values.push(state.human_player.value_history.slice(-1)[0]);
-    d3.select("body").append("p").text("Values - AI: " + values);
+    d3.select("body").append("p").text("Values: " + values);
     var ranks = d3.rank(values, (a, b) => a < b);
+    d3.select("body").append("p").text("Ranks: " + ranks);
     if(d3.count(ranks.filter(d => d == 0)) > 1 ) {
         ranks = ranks.map(d => d+1); // share the first place
     }
@@ -306,7 +307,6 @@ function getRanks(){
 function investHandler(human_action) {
     var ranks = getRanks();
     // TODO remove stupid debug statement
-    d3.select("body").append("p").text("Ranks - AI: " + ranks.ai + " Human: " + ranks.human);
     state = {
         "iteration": state.iteration + 1,
         "human_player": newPlayerState(human_action, state.human_player, ranks.human),
