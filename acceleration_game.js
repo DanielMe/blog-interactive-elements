@@ -291,9 +291,7 @@ function newPlayerState(action, currentState, rank){
 function getRanks(){
     var values = state.ai_players.map(p => p.value_history.slice(-1)[0]);
     values.push(state.human_player.value_history.slice(-1)[0]);
-    d3.select("body").append("p").text("Values: " + values);
     var ranks = d3.rank(values, (a, b) => d3.descending(a,b));
-    d3.select("body").append("p").text("Ranks: " + ranks);
     if(d3.count(ranks.filter(d => d == 0)) > 1 ) {
         ranks = ranks.map(d => d+1); // share the first place
     }
